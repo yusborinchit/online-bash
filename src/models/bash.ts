@@ -7,7 +7,7 @@ export class Bash {
   public static readonly CD_COMMAND = "cd";
   public static readonly MKDIR_COMMAND = "mkdir";
   public static readonly RMDIR_COMMAND = "rmdir";
-  public static readonly CLS_COMMAND = "rmdir";
+  public static readonly CLS_COMMAND = "cls";
   public static readonly ECHO_COMMAND = "echo";
   public static readonly TOUCH_COMMAND = "touch";
   public static readonly CAT_COMMAND = "cat";
