@@ -1,60 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- meta -->
     <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/vite.svg"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-
-    <!-- title -->
-    <title>YusborinBash</title>
-
-    <!-- fonts & css -->
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Bash</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="./src/styles/style.css"
-    />
+    <link rel="stylesheet" href="./src/styles/style.css" />
   </head>
   <body>
     <main
-      class="flex flex-col min-h-screen gap-1 p-2 font-ibm bg-zinc-950 text-zinc-100"
+      class="flex min-h-screen flex-col gap-1 bg-zinc-950 p-2 font-ibm text-zinc-100"
     >
-      <ul
-        id="bash-logs"
-        class="flex flex-col gap-1 empty:hidden"
-      ></ul>
-      <form
-        id="bash-form"
-        class="flex gap-2"
-      >
+      <ul id="bash-logs" class="flex flex-col gap-1 empty:hidden"></ul>
+      <form id="bash-form" class="flex gap-2">
         <div class="flex">
-          <span
-            id="bash-path"
-            data-path
-            class="font-bold"
-          >
-            $
-          </span>
+          <span id="bash-path" data-path class="font-bold"> $ </span>
           <span class="text-zinc-400">:</span>
         </div>
         <input
@@ -63,15 +29,10 @@
           autofocus
           spellcheck="false"
           autocomplete="off"
-          class="flex-1 bg-transparent border-none rounded-none outline-none ring-0 text-zinc-100"
+          class="flex-1 rounded-none border-none bg-transparent text-zinc-100 outline-none ring-0"
         />
       </form>
     </main>
-
-    <!-- scripts -->
-    <script
-      type="module"
-      src="/src/main.ts"
-    ></script>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
