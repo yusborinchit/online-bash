@@ -40,7 +40,7 @@ export class Bash {
   }
 
   public getCommandHistory(): string[] {
-    return this.commands_history;
+    return [...this.commands_history];
   }
 
   public getCurrentPath(): string {
@@ -120,7 +120,7 @@ export class Bash {
     if (!(directory instanceof Directory)) throw new Error("Route not valid");
 
     this.current_directory = directory;
-    this.makeDirectory(rest.join("/"), origin);
+    this.removeDirectory(rest.join("/"), origin);
 
     return this;
   }
@@ -190,3 +190,5 @@ export class Bash {
     return this;
   }
 }
+
+export const bash = new Bash();

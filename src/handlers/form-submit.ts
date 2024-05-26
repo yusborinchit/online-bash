@@ -3,10 +3,7 @@ import { createEchoLog } from "../components/echo-log";
 import { createErrorLog } from "../components/error-log";
 import { createLsLog } from "../components/ls-log";
 import { bash_input, bash_logs, bash_path } from "../consts/dom-elements";
-import { Bash } from "../models/bash";
-import { BashSingleton } from "../models/bash-singleton";
-
-const bash = BashSingleton.getBashInstance();
+import { Bash, bash } from "../models/bash";
 
 export function handleFormSubmit(submit_event: SubmitEvent) {
   submit_event.preventDefault();
@@ -58,12 +55,12 @@ export function handleFormSubmit(submit_event: SubmitEvent) {
     }
 
     if (command === Bash.RMDIR_COMMAND) {
-      const [directory_path] = args;
+      const [path] = args;
 
-      if (directory_path === undefined)
-        throw new Error("Directory path not found.");
+      if (path === undefined)
+        throw new Error("Directory or File path not found.");
 
-      bash.removeDirectory(directory_path);
+      bash.removeDirectory(path);
     }
 
     if (command === Bash.TOUCH_COMMAND) {
