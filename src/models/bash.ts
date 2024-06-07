@@ -2,6 +2,11 @@ import { BashItem } from "./bash-items/bash-item";
 import { Directory } from "./bash-items/directory";
 import { File } from "./bash-items/file";
 
+export interface CommandDescription {
+  command: string;
+  description: string;
+}
+
 export class Bash {
   public static readonly LS_COMMAND = "ls";
   public static readonly CD_COMMAND = "cd";
@@ -12,8 +17,48 @@ export class Bash {
   public static readonly TOUCH_COMMAND = "touch";
   public static readonly CAT_COMMAND = "cat";
   public static readonly WRITE_COMMAND = "write";
+  public static readonly HELP_COMMAND = "help";
 
-  public static readonly COMMANDS = [
+  public static readonly COMMANDS_DESCRIPTIONS = [
+    {
+      command: `${Bash.LS_COMMAND}`,
+      description: "Lists directory contents.",
+    },
+    {
+      command: `${Bash.CD_COMMAND} &lt;path&gt;`,
+      description: "Changes the current directory.",
+    },
+    {
+      command: `${Bash.MKDIR_COMMAND} &lt;path&gt;`,
+      description: "Creates a new directory.",
+    },
+    {
+      command: `${Bash.RMDIR_COMMAND} &lt;path&gt;`,
+      description: "Removes a directory.",
+    },
+    {
+      command: `${Bash.ECHO_COMMAND} &lt;text&gt;`,
+      description: "Displays a line of text.",
+    },
+    {
+      command: `${Bash.TOUCH_COMMAND} &lt;path&gt;`,
+      description: "Creates an empty file.",
+    },
+    {
+      command: `${Bash.CAT_COMMAND} &lt;path&gt;`,
+      description: "Displays file content.",
+    },
+    {
+      command: `${Bash.WRITE_COMMAND} &lt;path&gt; &lt;content&gt;`,
+      description: "Writes data to a file.",
+    },
+    {
+      command: `${Bash.HELP_COMMAND}`,
+      description: "Displays the list of built-in commands.",
+    },
+  ];
+
+  public static readonly COMMANDS_LIST = [
     Bash.LS_COMMAND,
     Bash.CD_COMMAND,
     Bash.MKDIR_COMMAND,
@@ -23,6 +68,7 @@ export class Bash {
     Bash.TOUCH_COMMAND,
     Bash.CAT_COMMAND,
     Bash.WRITE_COMMAND,
+    Bash.HELP_COMMAND,
   ];
 
   private root: Directory;

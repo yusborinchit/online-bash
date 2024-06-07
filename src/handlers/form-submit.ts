@@ -1,6 +1,7 @@
 import { createCommandLog } from "../components/command-log";
 import { createEchoLog } from "../components/echo-log";
 import { createErrorLog } from "../components/error-log";
+import { createHelpLog } from "../components/help-log";
 import { createLsLog } from "../components/ls-log";
 import { bash_input, bash_logs, bash_path } from "../consts/dom-elements";
 import { Bash, bash } from "../models/bash";
@@ -18,8 +19,12 @@ export function handleFormSubmit(submit_event: SubmitEvent) {
 
     bash_logs.appendChild(createCommandLog(current_path, input_value));
 
-    if (!Bash.COMMANDS.includes(command) && command !== "")
+    if (!Bash.COMMANDS_LIST.includes(command) && command !== "")
       throw new Error("Command not found.");
+
+    if (command === Bash.HELP_COMMAND) {
+      bash_logs.appendChild(createHelpLog());
+    }
 
     if (command === Bash.ECHO_COMMAND) {
       const text = args.join(" ");
