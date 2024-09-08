@@ -12,7 +12,7 @@ export class Bash {
   public static readonly CD_COMMAND = "cd";
   public static readonly MKDIR_COMMAND = "mkdir";
   public static readonly RMDIR_COMMAND = "rmdir";
-  public static readonly CLS_COMMAND = "cls";
+  public static readonly CLS_COMMAND = "clear";
   public static readonly ECHO_COMMAND = "echo";
   public static readonly TOUCH_COMMAND = "touch";
   public static readonly CAT_COMMAND = "cat";
@@ -51,6 +51,10 @@ export class Bash {
     {
       command: `${Bash.WRITE_COMMAND} &lt;path&gt; &lt;content&gt;`,
       description: "Writes data to a file.",
+    },
+    {
+      command: `${Bash.CLS_COMMAND}`,
+      description: "Clears the screen.",
     },
     {
       command: `${Bash.HELP_COMMAND}`,
